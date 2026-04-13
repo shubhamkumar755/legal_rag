@@ -293,15 +293,6 @@ def split_into_fine_chunks(section: dict) -> list[dict]:
 def store(all_chunks: list[dict]) -> None:
     client = chromadb.PersistentClient(path=DB_PATH)
 
-    try:
-        client.delete_collection(COLLECTION)
-        print("  Cleared old collection.")
-    except Exception:
-        pass
-
-    # No embedding_function passed — we embed manually and pass vectors directly.
-    # This keeps ChromaDB's native interface intact and lets LangChain handle
-    # the embedding call (so swapping models above is all that's needed).
     collection = client.get_or_create_collection(
         name=COLLECTION,
         metadata={"hnsw:space": "cosine"},
@@ -309,7 +300,10 @@ def store(all_chunks: list[dict]) -> None:
 
     for i in range(0, len(all_chunks), BATCH_SIZE):
         batch = all_chunks[i : i + BATCH_SIZE]
-        texts = [c["text"] for c in batch]
+        texts = [
+            f"{ACT_NAME}\nSection {c['section_number']}\n{c['text']}"
+            for c in batch
+        ]
 
         # LangChain call → list[list[float]]
         vectors = EMBEDDINGS.embed_documents(texts)
@@ -340,6 +334,13 @@ def store(all_chunks: list[dict]) -> None:
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    client = chromadb.PersistentClient(path=DB_PATH)
+    # Delete old DB only once
+    try:
+        client.delete_collection(COLLECTION)
+        print("Cleared old collection.")
+    except Exception:
+        pass
     for file in os.listdir(ACTS_FOLDER):
         if not file.endswith(".pdf"):
             continue
