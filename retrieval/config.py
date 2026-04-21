@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from sentence_transformers import CrossEncoder
-
+import google.generativeai as genai
 # ── Paths ─────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parents[1]   # go to project root
 DB_PATH = BASE_DIR / "db"
@@ -41,7 +41,29 @@ GEMINI_MODEL   = "gemini-2.5-flash-lite"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # ── Singletons (loaded once at import) ───────────────────────────────────────
-EMBEDDINGS = HuggingFaceEmbeddings(model_name="BAAI/bge-base-en-v1.5")
+if os.getenv("EMBEDDING_MODEL", "").startswith("gemini"):
+    genai.configure(api_key=GEMINI_API_KEY)
+
+    class _GeminiEmbeddings:
+        def embed_documents(self, texts):
+            return [
+                genai.embed_content(
+                    model="models/gemini-embedding-001",
+                    content=t
+                )["embedding"]
+                for t in texts
+            ]
+
+        def embed_query(self, text):
+            return genai.embed_content(
+                model="models/gemini-embedding-001",
+                content=text
+            )["embedding"]
+
+    EMBEDDINGS = _GeminiEmbeddings()
+
+else:
+    EMBEDDINGS = HuggingFaceEmbeddings(model_name="BAAI/bge-base-en-v1.5")
 RERANKER   = CrossEncoder("BAAI/bge-reranker-base")
 
 gemini_llm = ChatGoogleGenerativeAI(

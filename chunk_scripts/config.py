@@ -22,4 +22,4 @@ OVERLAP_CHARS   = 40
 BATCH_SIZE      = 20
 
 # ── Embeddings ────────────────────────────────────────────────────────────────
-EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
+EMBEDDING_MODEL = "gemini-embedding-001"
