@@ -1,0 +1,27 @@
+[
+  {
+    "query": "Someone took my phone by force",
+    "query_type": "layman",
+    "expected": [
+      "BNS Section 309",
+      "IPC Section 390",
+      "IPC Section 392",
+      "BNS Section 310"
+    ],
+    "retrieved_keys": [
+      "Ipc_Act Section 389",
+      "Bns Section 134",
+      "Ipc_Act Section 356",
+      "Bns Section 307"
+    ],
+    "hit_at_5": false,
+    "mrr": 0.0,
+    "precision_at_5": 0.0,
+    "recall": 0.0,
+    "latency_ms": {
+      "total": 8621.0
+    },
+    "enrichment_issues": false,
+    "notes": "Tests Stage 1 (Gemini expansion): should map 'force' → Robbery"
+  }
+]
