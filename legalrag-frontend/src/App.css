@@ -1,0 +1,332 @@
+body {
+  margin: 0;
+  font-family: "Poppins";
+  font-family: "Space Grotesk";
+  background: #020617;
+  /* background: #7E1F86; */
+  color: white;
+  
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f6f3ef;
+  color: #2d2622;
+}
+
+/* .container {
+  max-width: 720px;
+  margin: auto;
+  padding-top: 100px;
+
+
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+} 
+
+*/
+
+.container {
+  max-width: 90%;
+  margin: auto;
+  padding-top: 5px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  /* font-family: "Playwrite NZ Guides"; */
+  /* margin-bottom: 15px; */
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.title span {
+  color: #2fb6ff;
+}
+
+.subtitle {
+  color: rgba(255,255,255,.5);
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  color: #6b625c;
+  font-size: 18px;
+}
+
+.tabs {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-size: 16px;
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+
+.tabs button.active {
+  color: #ff4d4d;
+  color: #2fb6ff;
+
+  border-bottom: 2px solid #ff4d4d;
+  border-bottom: 2px solid #2fb6ff;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #6b625c;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  color: #2d2622;
+  border-bottom: 2px solid #2d2622;
+}
+
+
+
+.card {
+  background: white;
+  border: 1px solid #e6dfd8;
+  padding: 32px;
+  border-radius: 10px;
+
+  
+}
+
+
+
+textarea {
+  width: 100%;
+  margin-top: 12px;
+  padding: 18px;
+  background: rgba(20, 19, 19, 0.04);
+  border: none;
+  border-radius: 10px;
+  color: Black;
+}
+
+input[type=file] {
+  margin-top: 18px;
+}
+
+.explain-btn {
+
+  margin-top: 25px;
+
+  padding: 12px 28px;
+
+  background: rgba(0, 0, 0, 0.05);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 8px;
+
+  color: Black;
+
+  cursor: pointer;
+
+  transition: .2s ease;
+}
+
+.explain-btn:hover {
+
+  background: rgba(224, 180, 114, 0.1);
+}
+
+.upload-btn {
+
+  display: inline-block;
+
+  padding: 2px 5px;
+
+  background: grey;
+
+  color: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 500;
+
+  transition: 0.2s ease;
+
+  margin-left:10px;
+
+}
+
+.upload-btn:hover {
+
+  background: #b8adad;
+
+}
+
+.file-name {
+
+  margin-left: 5px;
+  margin-right: 10px;
+  
+  color: rgba(255,255,255,0.6);
+  color: black;
+
+}
+
+.animated-rag {
+  background: linear-gradient(
+    90deg,
+    #8A6E2F,
+    #b8962e,
+    #d4af37,
+    /* #FDB931, */
+    /* #FEDB37, */
+    /* #FDB931, */
+    #d4af37,
+    #b8962e,
+    #8A6E2F
+  );
+
+  background-size: 200% 100%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/****************/
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+
+
+.main-layout {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  max-width: 1400px;
+
+  margin: auto;
+  margin-top:-100px;
+
+  align-items: center;
+}
+
+.left-panel {
+
+  max-width: 480px;
+}
+
+
+.overview-title {
+
+  font-family: "Playfair Display";
+
+  font-size: 36px;
+
+  /* margin-bottom: px; */
+}
+
+
+.overview-text {
+
+  color: #6b625c;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  margin-bottom:100px;
+}
+
+
+.overview-svg {
+
+  margin-top: 40px;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  animation: float 6s ease-in-out infinite;
+}
+
+
+.right-panel {
+
+  width: 100%;
+}
+
+
+/* subtle svg floating animation */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+.right-panel{
+  margin-top:-200px;
+}
