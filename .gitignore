@@ -3,3 +3,9 @@ __pycache__
 *.pyc
 data/
 venv/
+
+
+legalrag-frontend/node_modules/
+legalrag-frontend/dist/
+legalrag-frontend/build/
+
